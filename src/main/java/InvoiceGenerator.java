@@ -9,11 +9,11 @@ public class InvoiceGenerator {
         return totalFare;
     }
 
-    public double calculateFare(Ride[] rides) {
+    public InvoiceSummary calculateFare(Ride[] rides) {     //calculate total fare for multiple rides
         double totalFare=0;
         for (Ride ride:rides){
             totalFare+=this.calculateFare(ride.distance,ride.time);
         }
-        return totalFare;
+        return new InvoiceSummary(rides.length,totalFare);
     }
 }
